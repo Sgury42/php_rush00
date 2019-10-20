@@ -13,7 +13,7 @@
 			<?php //if ($_SESSION['ROLE'] == 'admin') : ?>
 			<li><a href='index.php?action=admin'>Admin</a></li>
 			<?php //endif; ?>
-			<!--button to access cart-->
+			<li><a href='index.php?action=cartPanel'>Cart</a></li>
 		</ul>
 	</header>
 	<div>

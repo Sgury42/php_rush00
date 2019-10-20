@@ -23,10 +23,13 @@ function data_exists($db, $key, $value)
 	}
 	return (false);
 }
-function add_datas($db, $new_data)
+function add_datas($db, $new_data, $id)
 {
 	$datas = get_database($db);
-	array_push($datas, $new_data);
+	if (!$id)
+		array_push($datas, $new_data);
+	else
+		$datas[$id] = $new_data;
 	file_put_contents($db, serialize($datas));
 }
 function removeDatas($db, $key, $value, $elements)

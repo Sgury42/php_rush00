@@ -1,6 +1,7 @@
 <?php
 require_once './controller/usrController.php';
 require_once './controller/adminController.php';
+require_once './controller/cartController.php';
 
 function usrRoutes()
 {
@@ -25,7 +26,6 @@ function usrRoutes()
 			break ;
 	}
 }
-
 function adminRoutes()
 {
 	switch ($_GET['action']) {
@@ -43,6 +43,23 @@ function adminRoutes()
 			break ;
 		case 'admRemoveUser':
 			admRemoveUserAction();
+			break ;
+	}
+}
+function cartRoutes()
+{
+	switch ($_GET['action']) {
+		case 'ToCart':
+			addToCartAction();
+			break ;
+		case 'cartPanel':
+			cartPanelAction();
+			break ;
+		case 'cartEdit':
+			cartEditAction();
+			break ;
+		case 'placeOrder':
+			placeOrderAction();
 			break ;
 	}
 }

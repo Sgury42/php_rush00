@@ -4,6 +4,7 @@ session_start();
 define('DB_USERS', './private/usr'); 
 define('DB_ITEMS', './private/items');
 define('DB_CATEGORY', './private/categories');
+define('DB_ORDERS', './private/orders');
 
 //requires
 require_once './core/router.php';
@@ -16,6 +17,7 @@ if (isset($_GET['action'])) {
 		require_once './view/default/default.php';    // NEED TO CREATE FUNCTIONS !
 	usrRoutes();
 	adminRoutes();
+	cartRoutes();
 }
 else
 	require_once './view/default/default.php';

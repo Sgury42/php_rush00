@@ -34,7 +34,7 @@ function addCategoryAction()
 {
 	if (ft_isset($_POST['newCategory']))
 		if (!data_exists(DB_CATEGORY, 0, $_POST['newCategory'])) {
-			add_datas(DB_CATEGORY, $_POST['newCategory']);
+			add_datas(DB_CATEGORY, $_POST['newCategory'], 0);
 		}
 	require './view/admin/admin.php';
 }

@@ -7,6 +7,6 @@ function addItem($properties)
 		$new_item[$key] = $value;
 	if (data_exists(DB_ITEMS, 'ref', $new_item['ref']))
 		return (false);
-	add_datas(DB_ITEMS, $new_item);
+	add_datas(DB_ITEMS, $new_item, $new_item['ref']);
 	return (true);
 }

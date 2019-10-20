@@ -24,7 +24,28 @@
 		</form>
 		<?php endif; ?>
 	</div>
-	<!--  CREATE A DIV TO DISPLAY PAST ORDERS   -->
+	<div>
+		<?php $orders = get_database(DB_ORDERS); ?>
+		<?php $datas = get_database(DB_ITEMS); ?>
+		<?php foreach ($orders as $order) : ?>
+		<?php if ($order['login'] == $_SESSION['LOG_USR']) : ?>
+		<div style='display: flex; flex-direction: column;'>
+			<?php foreach ($order as $item) : ?>
+			<?php if (is_array($item)) : ?>
+			<div style='display: flex;'>
+				<?php $ref = $item['ref']; ?>
+				<p><?php echo $item['qty']; ?></p><br />
+				<p><?php echo $datas[$ref]['name']; ?></p><br />
+				<p><?php echo $item['unitPrice'] . '$'; ?></p><br />
+				<p><?php echo $item['price'] . '$'; ?></p><br />
+			</div>
+			<?php endif ?>
+			<?php endforeach ?>
+			<p>Total = <?php echo $order['total']; ?>
+		</div>
+		<?php endif ?>
+		<?php endforeach ?>
+	</div>
 </div>
 <?php
 $content = ob_get_clean();

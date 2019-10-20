@@ -21,7 +21,7 @@ function newUsr ($login, $passwd, $role)
 	$new['role'] = $role;
 	if (data_exists(DB_USERS, 'login', $new['login']))
 		return (false);
-	add_datas(DB_USERS, $new);
+	add_datas(DB_USERS, $new, $new['login']);
 	return (true);
 }
 function logout ()
